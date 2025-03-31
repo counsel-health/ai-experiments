@@ -55,9 +55,10 @@ VALID_CATEGORIES = [
 #         return self.classifier(message=message)
 
 class MedicalClassificationSignature(dspy.Signature):
-    """Signature for classifying medical messages into predefined categories."""
-    message: str = dspy.InputField(desc="""You are a medical assistant. You are given a message from a patient. Categorize the message into one of the following categories
-                                   Output must be one of the following categories:
+    """You are a medical assistant. You are given a message from a patient. Categorize the message into categories"""
+    message: str = dspy.InputField(desc="""The message from the patient""")
+    category: Literal["Medication/Treatment", "Advice", "Diagnosis/Triage", "Symptom", "Research", "Labs/Measurements", "MedicalRecord", "Other"] = dspy.OutputField(
+        desc="""Output must be one of the following categories:
 - Medication/Treatment: The message mentions a specific medication, or is about medication or treatments in general
 - Advice: The message is asking for medical advice 
 - Diagnosis/Triage: The message is asking you to diagnose or triage a medical condition.
@@ -65,8 +66,7 @@ class MedicalClassificationSignature(dspy.Signature):
 - Research: The message is asking for health-related research information or educational content
 - Labs/Measurements: The message is asking about lab results or health measurements
 - MedicalRecord: The message is about the patient's personal medical record.
-- Other: The message does not fit into any of the above categories or is empty.""")
-    category: Literal["Medication/Treatment", "Advice", "Diagnosis/Triage", "Symptom", "Research", "Labs/Measurements", "MedicalRecord", "Other"] = dspy.OutputField(
+- Other: The message does not fit into any of the above categories or is empty."""
     )
 
 
@@ -156,7 +156,8 @@ def main():
 
     
     # Create the base classifier
-    classifier = dspy.Predict(MedicalClassificationSignature)
+    classifier = dspy.ChainOfThought(MedicalClassificationSignature)
+    # classifier = dspy.Predict(MedicalClassificationSignature)
 
     # test_example = train_data[0]
     # print(test_example)
@@ -182,7 +183,7 @@ def main():
     #     max_labeled_demos=30,
     #     max_rounds=5
     # )
-    optimizer = dspy.MIPROv2(metric=accuracy_metric, auto="heavy", prompt_model=prompt_gen_llm)
+    optimizer = dspy.MIPROv2(metric=accuracy_metric, auto="light", prompt_model=prompt_gen_llm)
 
     optimized_classifier = optimizer.compile(
         classifier,

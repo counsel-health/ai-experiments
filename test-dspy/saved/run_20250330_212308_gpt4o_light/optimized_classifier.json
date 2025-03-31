@@ -1,0 +1,58 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "message": "can you interpret the image above?",
+        "categories": [
+          "Diagnosis\/Triage"
+        ]
+      },
+      {
+        "message": "",
+        "categories": [
+          "Other"
+        ]
+      },
+      {
+        "message": "What\u2019s the best diet to reduce cholesterol? How many carbs per day can I eat?",
+        "categories": [
+          "Advice"
+        ]
+      },
+      {
+        "message": "i've been having coughs with phlegm for the past month. not sure what's going on can you help?",
+        "categories": [
+          "Symptom",
+          "Diagnosis\/Triage"
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "Imagine you are a medical assistant tasked with understanding patient inquiries. For each message you receive from a patient, carefully analyze the content and context to determine the underlying intent. Your goal is to categorize the message into one of the following categories: Medication\/Treatment, Advice, Diagnosis\/Triage, Symptom, Research, Labs\/Measurements, MedicalRecord, or Other. Provide a detailed reasoning process that explains your thought process and how you arrived at the categorization. This reasoning should be clear and logical, ensuring that the categorization decision is transparent and justifiable. Use your medical knowledge and intuition to make an informed decision that best fits the content of the message.",
+      "fields": [
+        {
+          "prefix": "Message:",
+          "description": "The message from the patient"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Category:",
+          "description": "Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

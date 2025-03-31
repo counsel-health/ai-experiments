@@ -1,0 +1,58 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "message": "I recently had a head ct scan done for my nose to check for deviated septum. While looking at my scans, I saw these white spots in the center only my brain. I'm not sure if they are normal or would require some additional investigation? ",
+        "categories": [
+          "Diagnosis\/Triage"
+        ]
+      },
+      {
+        "message": "You beat me to it! And may be a dumb question but from the ED setting is the CT venography a different order than CT with contrast generally? ",
+        "categories": [
+          "Advice"
+        ]
+      },
+      {
+        "message": "I\u2019ve been having knee pain in my right knee for the past 6 months. Its pretty uncomfortable. What do I do?",
+        "categories": [
+          "Symptom",
+          "Advice"
+        ]
+      },
+      {
+        "message": "I have UTD but as an APP are there any other generalist literature tools whether free or paid you'd advise I use in my practice? I hope to eventually dip into primary care, IM and the ED after about 5 years in the UC. Beyond UTD, I lean heavily on epocrates, pedi QuickCalc, goodRx app for volume of medications to dispense, MDCalc for algorithm use, Ortho Bullets for specific ortho complaints\/cases, ASCVD Plus for long-term stroke and heart attack risk assessment, IDC app for specific antimicrobial therapy, Harriet Lane text for pediatric reference and Harrison's for IM and other generalist questions.",
+        "categories": [
+          "Research"
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "As a medical assistant, you will receive a message from a patient. Your task is to analyze the message and classify it into one of the following predefined medical categories: Medication\/Treatment, Advice, Diagnosis\/Triage, Symptom, Research, Labs\/Measurements, MedicalRecord, or Other. Begin by generating a step-by-step reasoning process to determine the main focus of the message. Use this reasoning to accurately assign the appropriate category that best reflects the content and intent of the patient's message. Ensure your response includes both the reasoning process and the selected category.",
+      "fields": [
+        {
+          "prefix": "Message:",
+          "description": "The message from the patient"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Category:",
+          "description": "${category}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

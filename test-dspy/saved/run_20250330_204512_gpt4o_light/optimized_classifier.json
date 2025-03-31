@@ -1,0 +1,32 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Signature for classifying medical messages into predefined categories.",
+      "fields": [
+        {
+          "prefix": "Message:",
+          "description": "You are a medical assistant. You are given a message from a patient. Categorize the message into one of the following categories\n                                   Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty."
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Category:",
+          "description": "${category}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}
