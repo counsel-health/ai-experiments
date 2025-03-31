@@ -1,0 +1,49 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "message": "Hi Dr, I\u2019ve been having some strange symptoms lately, namely some random bursts of dizziness (only last a couple seconds) sometimes I feel like a need to take a really deep breath. Also my migraines have been getting worse, I get visual auras usually, I get some blind spots, then sometimes a headache. Do you think this is concerning? ",
+      "category": "Symptom"
+    },
+    {
+      "augmented": true,
+      "message": "I actually don\u2019t know.  I had never even heard of an EMG before last month.  Should I ask them for one, or do they go had in hand?  Is this something they need to know ahead of time to allocate extra time\/equipment for?  Should I ask my pcp befor or after the EMG (assuming it might not be the technician who does the study?)",
+      "category": "Advice"
+    },
+    {
+      "message": "can you tell me about my immunizations?",
+      "categories": [
+        "MedicalRecord"
+      ]
+    },
+    {
+      "message": "Ok thx so much.  I don\u2019t have my test results yet, I\u2019ll probably receive in the mail or maybe in mychart shortly, and I can send to you.  \\n\\nWhen I first got diagnosed with NAFLD, I was very active\u2026I\u2019m an avid dancer (danced 4-5 hrs\/wk)  and boxer (2-4hrs\/wk) and did strength training to support my 2 loves\u2026and do loosely follow a Mediterranean type diet\u2026I was told not to try to lose weight b\/c being underweight could lead to other health issues.  This time around, I know I\u2019m not getting enough activity because of my struggles w\/exhaustion, migraines, muscle pain, and now painful wrist\u2026so I\u2019ll try to get my act together and incorporate more.  I have started Pilates and doing a little dancing ~an hour a week (at a much lighter intensity , as I can\u2019t do the performance-level stuff right now due to body pain and lower stamina).  In addition to increasing exercise, do you think I need to reduce caloric n intake to lose weight?  Even though I\u2019m heavier now than I was 14 years ago, my weight doesn\u2019t fluctuate and I still wear a size 2 (not sure if you know women\u2019s sizes) , I\u2019m just heavier but no belly fat type stuff that seems to be health issue stuff.",
+      "categories": [
+        "Advice"
+      ]
+    }
+  ],
+  "signature": {
+    "instructions": "Classify the given medical message into one of the predefined categories such as \"MedicalRecord\" or \"Advice\" by analyzing the content, including keywords, context, and semantic meaning. Use your understanding of natural language to accurately assign the most appropriate category to facilitate efficient organization and management of text data.",
+    "fields": [
+      {
+        "prefix": "Message:",
+        "description": "You are a medical assistant. You are given a message from a patient. Categorize the message into one of the following categories\n                                   Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty."
+      },
+      {
+        "prefix": "Category:",
+        "description": "${category}"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

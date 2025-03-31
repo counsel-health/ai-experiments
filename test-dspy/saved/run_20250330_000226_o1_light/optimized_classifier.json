@@ -1,0 +1,63 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "message": "what are my lab results?",
+        "reasoning": "The message is asking about lab results, which falls under the category of inquiries related to laboratory tests or health measurements.",
+        "category": "Labs\/Measurements",
+        "confidence": 0.95
+      },
+      {
+        "augmented": true,
+        "message": "Is an LDL of 121 bad?",
+        "reasoning": "The message is asking about a specific lab measurement, LDL cholesterol level, and whether it is considered bad. This falls under the category of lab results or health measurements.",
+        "category": "Labs\/Measurements",
+        "confidence": 0.95
+      },
+      {
+        "message": "When performing I&D on a small abscess and following drainage and breaking up loculations, if it's a small area do you suggest provider discretion or iodoform packing in most\/all cases?",
+        "categories": [
+          "Medication\/Treatment"
+        ]
+      },
+      {
+        "message": "Currently after I started taking my SSRIs I started to have nightly nightsweats but only from the waist down. How could I remedy this problem?",
+        "categories": [
+          "Medication\/Treatment"
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "Analyze the user\u2019s query step by step, focusing on whether it involves medications, advice, diagnosis, symptoms, research, labs, medical records, or falls into another category. Provide a concise reasoning explaining how you arrived at the final category, and include a confidence score between 0 and 1. Structure your final answer with the fields: Reasoning, Category, and Confidence.",
+      "fields": [
+        {
+          "prefix": "Message:",
+          "description": "You are a medical assistant, receiving a question from a patient"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Category:",
+          "description": "\n        Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty.\n"
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "Confidence score between 0 and 1"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

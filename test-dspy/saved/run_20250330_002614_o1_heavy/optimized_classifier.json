@@ -1,0 +1,64 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "message": "I actually don\u2019t know.  I had never even heard of an EMG before last month.  Should I ask them for one, or do they go had in hand?  Is this something they need to know ahead of time to allocate extra time\/equipment for?  Should I ask my pcp befor or after the EMG (assuming it might not be the technician who does the study?)",
+        "reasoning": "The message is asking for advice on whether to request an EMG (Electromyography) test and how to coordinate it with their primary care physician (PCP). The patient is seeking guidance on the process and whether they need to inform their PCP before or after the test. This indicates that the patient is looking for advice on how to proceed with their medical care.",
+        "category": "Advice",
+        "confidence": 0.9
+      },
+      {
+        "augmented": true,
+        "message": "How long should I take advil?",
+        "reasoning": "The message is asking about the duration for taking a specific medication, Advil, which is related to medication or treatment guidelines.",
+        "category": "Medication\/Treatment",
+        "confidence": 0.95
+      },
+      {
+        "message": "i also haven\u2019t aggregated my medical records before now, can you let me know if i\u2019m up to date on vaccinations or if there\u2019s any tests \/ shots i should be getting?",
+        "categories": [
+          "MedicalRecord",
+          "Advice"
+        ]
+      },
+      {
+        "message": "Kavin is currently taking Eucrisa. But he still has eczema flares somewhat often, usually atleast one active patch every day. Should we consider Dupixent for him?",
+        "categories": [
+          "Medication\/Treatment"
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "You are a medical assistant designed to classify incoming patient messages into specific categories to enhance automated support systems. For each message provided, follow these steps:\n\n1. **Analyze the Message**: Carefully read and understand the content and context of the patient's message.\n2. **Step-by-Step Reasoning**: Articulate a detailed, step-by-step reasoning process to interpret the message's intent and key elements.\n3. **Category Assignment**: Based on your analysis, assign the message to one of the following predefined categories:\n   - **Medication\/Treatment**: Mentions specific medications or discusses medication\/treatment options in general.\n   - **Advice**: Requests medical advice.\n   - **Diagnosis\/Triage**: Seeks diagnosis or triage of a medical condition.\n   - **Symptom**: Describes symptoms experienced by the patient.\n   - **Research**: Asks for health-related research information or educational content.\n   - **Labs\/Measurements**: Inquires about lab results or health measurements.\n   - **MedicalRecord**: Pertains to the patient's personal medical records.\n   - **Other**: Does not fit into any of the above categories or is empty.\n4. **Confidence Scoring**: Provide a confidence score between 0 and 1 indicating the certainty of your classification.\n\n**Output Format**:\n```\nReasoning: Let's think step by step in order to [your detailed reasoning here]\nCategory: [Selected Category]\nConfidence: [Your confidence score here]\n```\n\n**Example**:\n```\nReasoning: Let's think step by step in order to The patient is asking about their recent blood test results and whether they are within normal ranges, which relates to lab results or health measurements.\nCategory: Labs\/Measurements\nConfidence: 0.95\n```\n\nEnsure that your classification is accurate and that the confidence score reflects your certainty level regarding the assigned category.",
+      "fields": [
+        {
+          "prefix": "Message:",
+          "description": "You are a medical assistant, receiving a question from a patient"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Category:",
+          "description": "\n        Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty.\n"
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "Confidence score between 0 and 1"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "message": "can you tell me about my immunizations?",
+        "reasoning": "The message is asking about the patient's immunizations, which are part of their personal medical record.",
+        "category": "MedicalRecord"
+      },
+      {
+        "augmented": true,
+        "message": "Could my hair loss be due to stress?",
+        "reasoning": "The patient is asking whether a specific symptom, hair loss, could be caused by stress. This question is seeking a potential diagnosis or explanation for the symptom they are experiencing.",
+        "category": "Diagnosis\/Triage"
+      },
+      {
+        "message": "what are my lab results?",
+        "categories": [
+          "Labs\/Measurements"
+        ]
+      },
+      {
+        "message": "do his labs look ok?",
+        "categories": [
+          "Labs\/Measurements"
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "As a virtual medical assistant, your task is to classify patient inquiries into one of several predefined categories based on the content of their message. Carefully analyze the message and use a logical, step-by-step reasoning process to determine the most fitting category. Your reasoning should be clear and concise, explaining why the message was categorized in a particular way. The categories available for classification are: Medication\/Treatment, Advice, Diagnosis\/Triage, Symptom, Research, Labs\/Measurements, MedicalRecord, and Other. Your goal is to ensure that each message is directed to the appropriate category, facilitating accurate and efficient handling of medical queries.",
+      "fields": [
+        {
+          "prefix": "Message:",
+          "description": "You are a medical assistant, receiving a question from a patient"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Category:",
+          "description": "\n        Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty.\n"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

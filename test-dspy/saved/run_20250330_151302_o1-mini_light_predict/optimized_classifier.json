@@ -1,0 +1,55 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "message": "I tweaked my neck while walking my dog - he pulled hard unexpectedly. It\u2019s hard to turn right or left, and much worse than the usual neck pain from sleeping in a bad position. How do I know if it\u2019s serious or not?",
+      "categories": [
+        "Diagnosis\/Triage"
+      ]
+    },
+    {
+      "message": "i have some back pain how do i fix?",
+      "categories": [
+        "Advice"
+      ]
+    },
+    {
+      "message": "Why do men\u2019s faces\/ heads get wider with age?",
+      "categories": [
+        "Research"
+      ]
+    },
+    {
+      "message": "can you interpret this?",
+      "categories": [
+        "Diagnosis\/Triage"
+      ]
+    }
+  ],
+  "signature": {
+    "instructions": "Classify the following medical message into one of the predefined categories and provide a confidence score for your classification. \n\n**Categories:** \n- Advice\n- Symptom\n- Diagnosis\/Triage\n\n**Output Format:**\n```\nCategory: <CategoryName>\nConfidence: <ConfidenceScore>\n```\n\n**Example:**\n```\nCategory: Symptom\nConfidence: 0.92\n```\n\nMessage: {message}",
+    "fields": [
+      {
+        "prefix": "Message:",
+        "description": "You are a medical assistant, receiving a question from a patient"
+      },
+      {
+        "prefix": "Category:",
+        "description": "\n        Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty.\n"
+      },
+      {
+        "prefix": "Confidence:",
+        "description": "Confidence score between 0 and 1"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

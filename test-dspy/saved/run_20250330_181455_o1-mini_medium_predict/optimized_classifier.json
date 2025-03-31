@@ -1,0 +1,48 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "message": "Oh wow. And I think I'm deducing correctly from that last study you cited that the packing versus not packing results were regardless of size of the abscess. Is that right?",
+      "category": "Research"
+    },
+    {
+      "augmented": true,
+      "message": "Very nice. What are some examples of things patients commonly come on here to ask?",
+      "category": "Other"
+    },
+    {
+      "augmented": true,
+      "message": "I\u2019ve been having knee pain in my right knee for the past 6 months. Its pretty uncomfortable. What do I do?",
+      "category": "Advice"
+    },
+    {
+      "message": "Which supplements help with a cold? E.g. vitamin C, zinc, vitamin D?",
+      "categories": [
+        "Medication\/Treatment"
+      ]
+    }
+  ],
+  "signature": {
+    "instructions": "You are a critical component of a healthcare support system responsible for accurately categorizing incoming patient messages to ensure timely and appropriate responses. Analyze each message carefully and assign it to one of the predefined categories: Diagnosis\/Triage, Medication\/Treatment, Symptom, Advice, Research, or Other. Precise categorization is essential to provide effective medical assistance and potentially save lives by directing users to the right resources quickly.",
+    "fields": [
+      {
+        "prefix": "Message:",
+        "description": "You are a medical assistant. You are given a message from a patient. Categorize the message into one of the following categories\n                                   Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty."
+      },
+      {
+        "prefix": "Category:",
+        "description": "${category}"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}

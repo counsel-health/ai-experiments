@@ -1,0 +1,57 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "message": "Very nice. What are some examples of things patients commonly come on here to ask?",
+        "reasoning": "The message is asking for examples of common questions that patients might ask, but it does not fit into any specific medical category such as medication, advice, diagnosis, symptoms, research, labs, or medical records. It is more of a general inquiry about the types of questions that are typically asked.",
+        "category": "Other"
+      },
+      {
+        "augmented": true,
+        "message": "What treatments are best for me?",
+        "reasoning": "The message is asking about treatments, which falls under the category of medication or treatment options. The patient is inquiring about what treatments would be suitable for them, indicating a focus on treatment options.",
+        "category": "Medication\/Treatment"
+      },
+      {
+        "augmented": true,
+        "message": "i've been having coughs with phlegm for the past month. not sure what's going on can you help?",
+        "reasoning": "The patient is describing a symptom they have been experiencing, which is a cough with phlegm for the past month. They are unsure of the cause and are seeking help, which indicates they are describing their symptoms.",
+        "category": "Symptom"
+      },
+      {
+        "message": "For acute suppurative otitis media refractory to a single day of otc measures, do you advise a continued watch and wait approach or do you suggest going ahead and treating? Patient is afebrile and other vitals are also stable. And literature says 2 y\/o and below but would you consider a 10-day course in this patient if moderate but not severe unilateral bulging, erythema are noted?",
+        "categories": [
+          "Medication\/Treatment"
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "You are a medical assistant tasked with classifying patient messages into predefined categories to streamline healthcare responses. Your goal is to analyze each message, understand the context and intent behind it, and provide a step-by-step reasoning. Based on this reasoning, categorize the message into one of the following categories: 'Medication\/Treatment', 'Advice', 'Diagnosis\/Triage', 'Symptom', 'Research', 'Labs\/Measurements', 'MedicalRecord', or 'Other'. This dual output will assist healthcare professionals in efficiently addressing patient inquiries with precision.",
+      "fields": [
+        {
+          "prefix": "Message:",
+          "description": "You are a medical assistant, receiving a question from a patient"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Category:",
+          "description": "\n        Output must be one of the following categories:\n- Medication\/Treatment: The message mentions a specific medication, or is about medication or treatments in general\n- Advice: The message is asking for medical advice \n- Diagnosis\/Triage: The message is asking you to diagnose or triage a medical condition.\n- Symptom: The message is describing a symptom that the patient is experiencing.\n- Research: The message is asking for health-related research information or educational content\n- Labs\/Measurements: The message is asking about lab results or health measurements\n- MedicalRecord: The message is about the patient's personal medical record.\n- Other: The message does not fit into any of the above categories or is empty.\n"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "2.6.16",
+      "cloudpickle": "3.1"
+    }
+  }
+}
